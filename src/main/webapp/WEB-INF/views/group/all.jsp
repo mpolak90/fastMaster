@@ -1,26 +1,26 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: mateusz
-  Date: 25.02.19
-  Time: 18:33
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Groups</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<table>
+<a href="/admin/group/add"><button class="function green inside">Dodaj grupę</button></a>
+<a href="/admin"><button class="function yellow inside">POWRÓT</button></a>
+<table class="blueTable">
     <tr>
         <th>Nazwa</th>
-        <th>Funkcje</th>
+        <th>Edytuj</th>
+        <th>Usuń</th>
     </tr>
-    <c:forEach var="group" items="${groups}">
+    <c:forEach var="productsGroup" items="${groups}">
         <tr>
-            <td>${group.name}</td>
-            <td><a href="group/edit/${group.id}"><button>Edytuj</button></a></td>
+            <td>${productsGroup.name}</td>
+            <td><a href="/admin/group/edit/${productsGroup.id}">
+                <button class="function inside">Edytuj</button>
+            </a></td>
+            <td><a href="/admin/group/delete/${productsGroup.id}"><button class="function red inside">Usuń</button></a></td>
         </tr>
     </c:forEach>
 </table>

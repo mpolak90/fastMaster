@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="pl">
@@ -14,46 +16,16 @@
         <td>
             <div class="menu">
                 <table width="100%">
-                    <tr>
-                        <td>
-                            <button class="function inside">Zestawy</button>
-                        </td>
-                        <td>
-                            <button class="function inside">Burgery</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button class="function inside">Napoje zimne</button>
-                        </td>
-                        <td>
-                            <button class="function inside">Napoje ciepłe</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button class="function inside">Desery</button>
-                        </td>
-                        <td>
-                            <button class="function inside">Dodatki</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button class="function inside">Sałatki</button>
-                        </td>
-                        <td>
-                            <button class="function inside">Sosy</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button class="function inside">Sałatki</button>
-                        </td>
-                        <td>
-                            <button class="function inside">Sosy</button>
-                        </td>
-                    </tr>
+                    <c:forEach items="${groups}" step="2" varStatus="i">
+                        <tr>
+                            <c:forEach begin="0" end="1" varStatus="j">
+                                <c:set var="index" value="${i.index + j.index}"/>
+                                <td>
+                                    <button class="function inside">${index < fn:length(groups) ? groups[index].name : ""}</button>
+                                </td>
+                            </c:forEach>
+                        </tr>
+                    </c:forEach>
                 </table>
             </div>
         </td>
@@ -63,10 +35,14 @@
             <table width="95%">
                 <tr>
                     <td>
-                        <a href="/admin"><button class="function red">ADMIN</button></a>
+                        <a href="/admin">
+                            <button class="function red">ADMIN</button>
+                        </a>
                     </td>
                     <td>
-                        <button class="function red">WYLOGUJ</button>
+                        <a href="/">
+                            <button class="function red">WYLOGUJ</button>
+                        </a>
                     </td>
                 </tr>
             </table>

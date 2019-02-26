@@ -5,7 +5,9 @@
     <title>Produkty</title>
 </head>
 <body>
-<a href="admin/product/add"><button>Dodaj nowy produkt</button></a>
+<a href="admin/product/add">
+    <button>Dodaj nowy produkt</button>
+</a>
 <table>
     <tr>
         <th>Nazwa</th>
@@ -18,12 +20,16 @@
     </tr>
     <c:forEach var="product" items="${products}">
         <td>${product.name}</td>
-        <td>${product.group.name}</td>
+        <td>${product.productsGroup.name}</td>
         <td>${product.solo_price}</td>
         <td>${product.menu_price}</td>
         <td>${product.tax.value}</td>
-        <td><a href="admin/product/details/${product.id}"><button>Zobacz</button></a></td>
-        <td><a href="admin/product/edit/${product.id}"><button>Edytuj</button></a></td>
+        <td><a href="admin/product/details/${product.id}">
+            <button>Zobacz</button>
+        </a></td>
+        <td><a href="admin/product/edit/${product.id}">
+            <button>Edytuj</button>
+        </a></td>
     </c:forEach>
 </table>
 </body>

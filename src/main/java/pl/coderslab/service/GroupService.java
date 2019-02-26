@@ -1,9 +1,10 @@
 package pl.coderslab.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import pl.coderslab.model.Group;
-import pl.coderslab.repository.GroupRepository;
+import pl.coderslab.model.ProductsGroup;
+import pl.coderslab.repository.ProductsGroupRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -13,21 +14,21 @@ import java.util.List;
 public class GroupService {
 
     @Autowired
-    GroupRepository groupRepository;
+    ProductsGroupRepository productsGroupRepository;
 
-    public void save(Group group) {
-        groupRepository.save(group);
+    public void save(ProductsGroup productsGroup) {
+        productsGroupRepository.save(productsGroup);
     }
 
-    public Group find(Long id) {
-        return groupRepository.findOne(id);
+    public ProductsGroup find(Long id) {
+        return productsGroupRepository.findOne(id);
     }
 
-    public List<Group> findAll() {
-        return groupRepository.findAll();
+    public List<ProductsGroup> findAll() {
+        return productsGroupRepository.findAllByOrderByNameDesc();
     }
 
     public void delete(Long id) {
-        groupRepository.delete(id);
+        productsGroupRepository.delete(id);
     }
 }

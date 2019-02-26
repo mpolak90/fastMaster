@@ -1,22 +1,34 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: mateusz
-  Date: 25.02.19
-  Time: 18:42
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Admin</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<table>
+Za
+<table width="100%">
     <tr>
-        <td><a href="admin/group/all"><button>Grupy</button></a></td>
-        <td><a href="admin/product/all"><button>Produkty</button></a></td>
-        <td><a href="admin/tax/all"><button>Podatki</button></a></td>
-        <td><a href="admin/store/all"><button>Magazyn</button></a></td>
+        <td width="25%"><a href="/admin/group/all">
+            <button class="function">Grupy</button>
+        </a></td>
+        <td width="25%"><a href="/admin/product/all">
+            <button class="function">Produkty</button>
+        </a></td>
+        <td width="25%"><a href="/admin/tax/all">
+            <button class="function">Podatki</button>
+        </a></td>
+        <td width="25%"><a href="/admin/store/all">
+            <button class="function">Magazyn</button>
+        </a></td>
+    </tr>
+    <tr></tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td width="25%"><a href="/main">
+            <button class="function yellow inside">POWRÓT</button>
+        </a></td>
     </tr>
 </table>
 </body>

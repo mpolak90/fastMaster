@@ -10,17 +10,22 @@
 <html>
 <head>
     <title>Podatki</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+<a href="/admin/tax/add"><button>Nowy podatek</button></a>
+<a href="/admin"><button>POWRÓT</button></a>
 <table>
     <tr>
         <th>Nazwa</th>
-        <th>Wysokość podatku</th>
+        <th>Stawka</th>
+        <th>Usuń</th>
     </tr>
-    <c:forEach var="tax" items="taxes">
+    <c:forEach var="tax" items="${taxes}">
         <tr>
             <td>${tax.name}</td>
-            <td>${tax.value}</td>
+            <td>${tax.value}%</td>
+            <td><a href="/admin/tax/delete/"${tax.id}><button class="function red">Usuń</button></a></td>
         </tr>
     </c:forEach>
 </table>

@@ -4,7 +4,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.format.FormatterRegistry;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -53,7 +52,7 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     @Bean
     public LocalEntityManagerFactoryBean entityManagerFactory() {
         LocalEntityManagerFactoryBean emfb = new LocalEntityManagerFactoryBean();
-        emfb.setPersistenceUnitName("bookstorePersistenceUnit");
+        emfb.setPersistenceUnitName("fastMasterPersistenceUnit");
         return emfb;
     }
 
@@ -62,14 +61,21 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         return new JpaTransactionManager(emf);
     }
 
-    @Override
-    public void addFormatters(FormatterRegistry registry) {
-/*        registry.addConverter(getPublisherConverter());
-        registry.addConverter(getAuthorConverter());
-        registry.addConverter(getCategoryConverter());*/
+    @Bean(name = "localeResolver")
+    public LocaleContextResolver getLocaleContextResolver() {
+        SessionLocaleResolver localeResolver = new SessionLocaleResolver();
+        localeResolver.setDefaultLocale(new Locale("pl", "PL"));
+        return localeResolver;
     }
 
-/*    @Bean
+    /*      @Override
+        public void addFormatters(FormatterRegistry registry) {
+        registry.addConverter(getPublisherConverter());
+        registry.addConverter(getAuthorConverter());
+        registry.addConverter(getCategoryConverter());
+    }
+
+    @Bean
     public PublisherConverter getPublisherConverter() {
         return new PublisherConverter();
     }
@@ -80,14 +86,6 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     }
 
     @Bean
-    public CategoryConverter getCategoryConverter() { return new CategoryConverter(); }*/
-
-    @Bean(name = "localeResolver")
-    public LocaleContextResolver getLocaleContextResolver() {
-        SessionLocaleResolver localeResolver = new SessionLocaleResolver();
-        localeResolver.setDefaultLocale(new Locale("pl", "PL"));
-        return localeResolver;
-    }
-
+    public CategoryConverter getCategoryConverter() { return new CategoryConverter(); } */
 }
 

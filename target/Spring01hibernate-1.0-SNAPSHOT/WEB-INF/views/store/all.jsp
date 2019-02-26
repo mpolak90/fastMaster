@@ -10,8 +10,11 @@
 <html>
 <head>
     <title>Magazyn</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+<a href="/admin/store/add"><button class="function green">Nowy surowiec</button></a>
+<a href="/admin"><button class="function yellow">POWRÓT</button></a>
 <table>
     <tr>
         <td>Nazwa</td>

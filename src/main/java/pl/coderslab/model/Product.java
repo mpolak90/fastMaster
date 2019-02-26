@@ -22,7 +22,7 @@ public class Product {
     private List<Store> ingredients;
 
     @ManyToOne
-    private Group group;
+    private ProductsGroup productsGroup;
 
     @Digits(integer = 2, fraction = 2)
     @DecimalMin("0.01")
