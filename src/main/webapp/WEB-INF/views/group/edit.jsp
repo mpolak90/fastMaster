@@ -8,7 +8,7 @@
 <body>
 <a href="/admin/group/all"><button class="function yellow">Powrót</button></a>
 <form:form method="post" modelAttribute="group">
-    <table>
+    <table class="blueTable">
         <tr>
             <td>Nazwa dla grupy:</td>
             <td><form:input path="name" required="true"/></td>

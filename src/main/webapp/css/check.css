@@ -1,0 +1,11 @@
+.check {
+    display: inline-block;
+    border: solid;
+    text-align: center;
+    margin: 5px;
+    width: 325px;
+}
+
+.check table {
+    width: 100%;
+}

@@ -24,7 +24,7 @@ public class StoreService {
     }
 
     public List<Store> findAll() {
-        return storeRepository.findAll();
+        return storeRepository.findAllByOrderByNameAsc();
     }
 
     public void delete(Long id) {

@@ -1,11 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: mateusz
-  Date: 25.02.19
-  Time: 18:55
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -13,9 +6,9 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<a href="/admin/tax/add"><button>Nowy podatek</button></a>
-<a href="/admin"><button>POWRÓT</button></a>
-<table>
+<a href="/admin/tax/add"><button class="function green">Nowy podatek</button></a>
+<a href="/admin"><button class="function yellow">POWRÓT</button></a>
+<table class="blueTable">
     <tr>
         <th>Nazwa</th>
         <th>Stawka</th>

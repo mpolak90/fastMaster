@@ -1,7 +1,6 @@
 package pl.coderslab.model;
 
 import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,6 +17,9 @@ public class ProductsGroup {
     @NotBlank
     private String name;
 
+    public ProductsGroup() {
+    }
+
     public Long getId() {
         return id;
     }
@@ -32,8 +34,5 @@ public class ProductsGroup {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public ProductsGroup() {
     }
 }

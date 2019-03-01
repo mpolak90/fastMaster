@@ -21,7 +21,30 @@ Za
             <button class="function">Magazyn</button>
         </a></td>
     </tr>
-    <tr></tr>
+    <tr>
+        <td width="25%"><a>
+            <button class="function grey">Klienci</button>
+        </a></td>
+        <td width="25%"><a href="/admin/payment/all">
+            <button class="function">Płatności</button>
+        </a></td>
+        <td width="25%"><a href="/admin/user/all">
+            <button class="function">Użytkownicy</button>
+        </a></td>
+        <td width="25%"><a>
+            <button class="function grey">Zestawy</button>
+        </a></td>
+    </tr>
+    <tr>
+        <td width="25%"><a>
+            <button class="function grey">Rachunki</button>
+        </a></td>
+        <td width="25%"><a>
+            <button class="function grey">Statystyki</button>
+        </a></td>
+        <td></td>
+        <td></td>
+    </tr>
     <tr>
         <td></td>
         <td></td>

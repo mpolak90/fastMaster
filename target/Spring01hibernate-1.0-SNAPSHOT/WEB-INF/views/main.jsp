@@ -5,14 +5,32 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Test</title>
+    <title>Kasa</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 <table width="100%">
     <tr>
-        <td height="750em" width="50%"><label><textarea id="display"></textarea></label>
-            <h5 id="top">Zalogowany użytkownik: </h5></td>
+        <td height="740em" width="50%"><label>
+            <div id="display" readonly>
+                <c:if test="${orders != null}">
+                    <table class="blueTable">
+                        <c:forEach items="${orders}" var="order">
+                            <tr>
+                                <td>${order.name}</td>
+                                <td>${order.solo_price} zł</td>
+                            </tr>
+                        </c:forEach>
+                        <tr>
+                            <td><b>SUMA:</b></td>
+                            <td><b>${sum} zł</b></td>
+                        </tr>
+                    </table>
+                </c:if>
+            </div>
+        </label>
+            <h5 id="top">Zalogowany użytkownik: ${user.name}</h5>
+        </td>
         <td>
             <div class="menu">
                 <table width="100%">
@@ -21,7 +39,9 @@
                             <c:forEach begin="0" end="1" varStatus="j">
                                 <c:set var="index" value="${i.index + j.index}"/>
                                 <td>
-                                    <button class="function inside">${index < fn:length(groups) ? groups[index].name : ""}</button>
+                                    <a href="/main/group/${groups[index].id}">
+                                        <button class="function inside">${index < fn:length(groups) ? groups[index].name : "404"}</button>
+                                    </a>
                                 </td>
                             </c:forEach>
                         </tr>
@@ -31,7 +51,7 @@
         </td>
     </tr>
     <tr>
-        <td height="110em">
+        <td height="80em">
             <table width="95%">
                 <tr>
                     <td>
@@ -40,7 +60,7 @@
                         </a>
                     </td>
                     <td>
-                        <a href="/">
+                        <a href="/main/logout">
                             <button class="function red">WYLOGUJ</button>
                         </a>
                     </td>
@@ -51,7 +71,14 @@
             <table width="100%">
                 <tr>
                     <td>
-                        <button id="payment" class="function green">PRZEJDŹ DO PŁATNOŚCI</button>
+                        <c:if test="${orders == null}">
+                            <button id="payment" class="function grey">PRZEJDŹ DO PŁATNOŚCI</button>
+                        </c:if>
+                        <c:if test="${orders != null}">
+                            <a href="/main/check/payment">
+                                <button id="payment" class="function green">PRZEJDŹ DO PŁATNOŚCI</button>
+                            </a>
+                        </c:if>
                     </td>
                 </tr>
             </table>

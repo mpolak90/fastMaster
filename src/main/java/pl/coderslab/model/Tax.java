@@ -1,8 +1,6 @@
 package pl.coderslab.model;
 
-import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.context.annotation.Configuration;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,9 +24,9 @@ public class Tax {
     private String name;
 
     @NotNull
-    @Digits(integer = 2, fraction = 1)
-    @DecimalMin(value = "0.0")
-    @DecimalMax(value = "99.9")
+    @Digits(integer = 2, fraction = 0)
+    @DecimalMin(value = "0")
+    @DecimalMax(value = "99")
     private BigDecimal value;
 
     public Tax() {

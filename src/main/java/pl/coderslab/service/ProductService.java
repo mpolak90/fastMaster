@@ -24,9 +24,11 @@ public class ProductService {
     }
 
     public List<Product> findAll() {
-        return productRepository.findAll();
+        return productRepository.findAllByOrderByNameAsc();
 
     }
+
+    public List<Product> findByGroup(Long id) { return productRepository.findAllByProductsGroupId(id); }
 
     public void delete(Long id) {
         productRepository.delete(id);

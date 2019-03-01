@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -15,6 +16,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import pl.coderslab.converter.ProductsGroupConverter;
+import pl.coderslab.converter.StoreConverter;
+import pl.coderslab.converter.TaxConverter;
 
 import javax.persistence.EntityManagerFactory;
 import javax.validation.Validator;
@@ -68,24 +72,26 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         return localeResolver;
     }
 
-    /*      @Override
-        public void addFormatters(FormatterRegistry registry) {
-        registry.addConverter(getPublisherConverter());
-        registry.addConverter(getAuthorConverter());
-        registry.addConverter(getCategoryConverter());
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        registry.addConverter(getStoreConverter());
+        registry.addConverter(getProductsGroupConverter());
+        registry.addConverter(getTaxConverter());
     }
 
     @Bean
-    public PublisherConverter getPublisherConverter() {
-        return new PublisherConverter();
+    public StoreConverter getStoreConverter() {
+        return new StoreConverter();
     }
 
     @Bean
-    public AuthorConverter getAuthorConverter() {
-        return new AuthorConverter();
+    public ProductsGroupConverter getProductsGroupConverter() {
+        return new ProductsGroupConverter();
     }
 
     @Bean
-    public CategoryConverter getCategoryConverter() { return new CategoryConverter(); } */
+    public TaxConverter getTaxConverter() {
+        return new TaxConverter();
+    }
 }
 
