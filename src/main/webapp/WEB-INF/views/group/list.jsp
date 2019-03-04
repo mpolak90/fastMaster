@@ -39,9 +39,11 @@
                             <c:forEach begin="0" end="1" varStatus="j">
                                 <c:set var="index" value="${i.index + j.index}"/>
                                 <td>
-                                    <a href="/main/check/add/${index < fn:length(products) ? products[index].id : "empty"}">
-                                        <button class="function inside">${index < fn:length(products) ? products[index].name : "wróć"}</button>
-                                    </a>
+                                    <c:if test="${index < fn:length(products)}">
+                                        <a href="/main/check/add/${products[index].id}">
+                                            <button class="function inside">${products[index].name}</button>
+                                        </a>
+                                    </c:if>
                                 </td>
                             </c:forEach>
                         </tr>

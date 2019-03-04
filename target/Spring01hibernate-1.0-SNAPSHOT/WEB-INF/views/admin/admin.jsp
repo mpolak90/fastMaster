@@ -5,7 +5,6 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-Za
 <table width="100%">
     <tr>
         <td width="25%"><a href="/admin/group/all">

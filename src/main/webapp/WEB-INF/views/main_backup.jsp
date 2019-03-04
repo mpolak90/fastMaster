@@ -39,11 +39,9 @@
                             <c:forEach begin="0" end="1" varStatus="j">
                                 <c:set var="index" value="${i.index + j.index}"/>
                                 <td>
-                                    <c:if test="${index < fn:length(groups)}">
-                                        <a href="/main/group/${groups[index].id}">
-                                            <button class="function inside">${groups[index].name}</button>
-                                        </a>
-                                    </c:if>
+                                    <a href="/main/group/${groups[index].id}">
+                                        <button class="function inside">${index < fn:length(groups) ? groups[index].name : "404"}</button>
+                                    </a>
                                 </td>
                             </c:forEach>
                         </tr>
@@ -56,30 +54,16 @@
         <td height="80em">
             <table width="95%">
                 <tr>
-                    <c:if test="${orders == null}">
-                        <td>
-                            <a href="/admin">
-                                <button class="function red">ADMIN</button>
-                            </a>
-                        </td>
-                        <td>
-                            <a href="/main/logout">
-                                <button class="function red">WYLOGUJ</button>
-                            </a>
-                        </td>
-                    </c:if>
-                    <c:if test="${orders != null}">
-                        <td>
-                            <a>
-                                <button class="function grey">ADMIN</button>
-                            </a>
-                        </td>
-                        <td>
-                            <a>
-                                <button class="function grey">WYLOGUJ</button>
-                            </a>
-                        </td>
-                    </c:if>
+                    <td>
+                        <a href="/admin">
+                            <button class="function red">ADMIN</button>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/main/logout">
+                            <button class="function red">WYLOGUJ</button>
+                        </a>
+                    </td>
                 </tr>
             </table>
         </td>

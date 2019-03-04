@@ -60,8 +60,8 @@
                         </a>
                     </td>
                     <td>
-                        <a>
-                            <button class="function grey">WYLOGUJ</button>
+                        <a href="/main">
+                            <button class="function yellow">Powrót</button>
                         </a>
                     </td>
                 </tr>
