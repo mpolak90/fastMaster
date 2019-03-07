@@ -6,7 +6,7 @@
     <persistence-unit name="fastMasterPersistenceUnit">
         <properties>
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:mysql://localhost:3306/fastMaster"/>
+                      value="https://node60747-mpolak90.unicloud.pl"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value="g1gcfJZtyK"/>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
